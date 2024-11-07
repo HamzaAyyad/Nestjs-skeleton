@@ -24,7 +24,7 @@
 
 ## Description
 
-fully funtional [Nest](https://github.com/nestjs/nest) skeleton with typeorm, swagger, i18n, redis caching, custom logging using winston and with eslint configured to widely used typescript best practices.
+Fully funtional [Nest](https://github.com/nestjs/nest) skeleton with typeorm, swagger, i18n, redis caching, custom logging using winston and with eslint configured to widely used typescript best practices.
 
 ## Installation
 
