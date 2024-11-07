@@ -24,7 +24,7 @@
 
 ## Description
 
-[Nest](https://github.com/nestjs/nest) framework TypeScript fully funtional skeleton with typeorm and node V22.
+fully funtional [Nest](https://github.com/nestjs/nest) skeleton with typeorm, swagger, i18n, redis caching, custom logging using winston and with eslint configured to widely used typescript best practices.
 
 ## Installation
 
