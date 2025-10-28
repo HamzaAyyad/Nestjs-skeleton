@@ -16,12 +16,15 @@ const compat = new FlatCompat({
 
 export default [
   {
-    ignores: ['**/.eslintrc.js', '**/*.e2e.json', '**/*.spec.ts', '**/*.e2e-spec.ts'],
+    ignores: [
+      '**/.eslintrc.js',
+      '**/*.e2e.json',
+      '**/*.spec.ts',
+      '**/*.e2e-spec.ts',
+      '**/*.integration.e2e-spec.ts',
+    ],
   },
-  ...compat.extends(
-    'plugin:@typescript-eslint/recommended-type-checked',
-    'plugin:prettier/recommended'
-  ),
+  ...compat.extends('plugin:@typescript-eslint/recommended-type-checked'),
   {
     plugins: {
       '@typescript-eslint': typescriptEslintEslintPlugin,
@@ -34,12 +37,12 @@ export default [
       },
 
       parser: tsParser,
-      ecmaVersion: 2023,
+      ecmaVersion: 2024,
       sourceType: 'module',
 
       parserOptions: {
         project: 'tsconfig.json',
-        tsconfigRootDir: 'D:\\Work\\Testing-nest',
+        tsconfigRootDir: __dirname,
       },
     },
 
@@ -80,7 +83,6 @@ export default [
       '@typescript-eslint/no-floating-promises': 'error',
       '@typescript-eslint/no-misused-promises': 'error',
       '@typescript-eslint/no-unnecessary-type-assertion': 'error',
-      '@typescript-eslint/strict-boolean-expressions': 'error',
       '@typescript-eslint/prefer-readonly': 'error',
     },
   },

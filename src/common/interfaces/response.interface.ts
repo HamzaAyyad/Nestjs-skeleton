@@ -1,4 +1,4 @@
-import { AbstractKeyValuePair } from './Abstract-key-value.interface';
+import { AbstractKeyValuePair } from './Abstract-key-value.interface.js';
 
 export interface ResponseModel<T> {
   statusCode: number;
