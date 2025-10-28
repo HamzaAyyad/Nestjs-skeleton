@@ -1,13 +1,13 @@
+import KeyvRedis from '@keyv/redis';
 import { CacheModuleAsyncOptions } from '@nestjs/cache-manager';
 import { ConfigService } from '@nestjs/config';
 import {
   TypeOrmModuleAsyncOptions,
   TypeOrmModuleOptions,
 } from '@nestjs/typeorm';
-import { redisStore } from 'cache-manager-redis-yet';
 import Joi from 'joi';
 import { DatabaseType } from 'typeorm';
-import { Environments } from '../common/enums/environment.enum';
+import { Environments } from '../common/enums/environment.enum.js';
 
 export const envValidationSchema = {
   SERVER_PORT: Joi.number().required(),
@@ -48,17 +48,11 @@ export const typeOrmConfig: TypeOrmModuleAsyncOptions = {
 };
 
 export const cacheConfig: CacheModuleAsyncOptions = {
-  useFactory: async (configService: ConfigService) => {
-    const store = await redisStore({
-      socket: {
-        host: configService.get('REDIS_HOST'),
-        port: configService.get('REDIS_PORT'),
-      },
-    });
-
+  useFactory: (configService: ConfigService) => {
+    const redisUrl = `redis://${configService.get('REDIS_HOST')}:${configService.get('REDIS_PORT')}`;
     return {
-      store,
-      ttl: configService.get('REDIS_TTL') ?? 180000,
+      stores: [new KeyvRedis(redisUrl)],
+      ttl: configService.get<number>('REDIS_TTL') ?? 180000,
     };
   },
   inject: [ConfigService],

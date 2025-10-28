@@ -5,10 +5,10 @@ import { SwaggerModule } from '@nestjs/swagger';
 import helmet from 'helmet';
 import { WinstonModule } from 'nest-winston';
 import { I18nMiddleware, I18nValidationExceptionFilter } from 'nestjs-i18n';
-import { AppModule } from './app.module';
-import { ResponseInterceptor } from './common/interceptors/response.interceptor';
-import { winstonLogger } from './common/libs/utils/winston-logger.util';
-import { swaggerConfig } from './config/swagger.config';
+import { AppModule } from './app.module.js';
+import { ResponseInterceptor } from './common/interceptors/response.interceptor.js';
+import { winstonLogger } from './common/libs/utils/winston-logger.util.js';
+import { swaggerConfig } from './config/swagger.config.js';
 
 async function bootstrap() {
   const app = await NestFactory.create<NestExpressApplication>(AppModule, {

@@ -1,8 +1,8 @@
 import { Injectable, Logger, NestMiddleware } from '@nestjs/common';
 import { NextFunction, Response } from 'express';
 import { v4 as uuidv4 } from 'uuid';
-import { RequestModel } from '../interfaces/request.interface';
-import { isNotEmpty } from '../libs/helpers/is-not-empty.helper';
+import { RequestModel } from '../interfaces/request.interface.js';
+import { isNotEmpty } from '../libs/helpers/is-not-empty.helper.js';
 
 @Injectable()
 export class LoggingMiddleware implements NestMiddleware {

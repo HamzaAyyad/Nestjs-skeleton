@@ -6,8 +6,8 @@ import {
 } from '@nestjs/common';
 import { Response } from 'express';
 import { map, Observable } from 'rxjs';
-import { RequestModel } from '../interfaces/request.interface';
-import { ResponseModel } from '../interfaces/response.interface';
+import { RequestModel } from '../interfaces/request.interface.js';
+import { ResponseModel } from '../interfaces/response.interface.js';
 
 @Injectable()
 export class ResponseInterceptor<T> implements NestInterceptor {

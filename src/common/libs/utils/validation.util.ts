@@ -1,6 +1,9 @@
 import { ValidationArguments } from 'class-validator';
 import { i18nValidationMessage } from 'nestjs-i18n';
-import { I18nPath, I18nTranslations } from 'src/generated/i18n.generated';
+import {
+  I18nPath,
+  I18nTranslations,
+} from '../../../generated/i18n.generated.js';
 
 export function validationMessage(
   key: I18nPath

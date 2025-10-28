@@ -11,15 +11,15 @@ import {
   I18nModule,
 } from 'nestjs-i18n';
 import { join } from 'path';
-import { AppController } from './app.controller';
-import { HttpExceptionFilter } from './common/filters/http-exception.filter';
-import { LoggingMiddleware } from './common/middlewares/logging.middleware';
-import { LanguageService } from './common/services/language.service';
+import { AppController } from './app.controller.js';
+import { HttpExceptionFilter } from './common/filters/http-exception.filter.js';
+import { LoggingMiddleware } from './common/middlewares/logging.middleware.js';
+import { LanguageService } from './common/services/language.service.js';
 import {
   cacheConfig,
   envValidationSchema,
   typeOrmConfig,
-} from './config/app.config';
+} from './config/app.config.js';
 
 @Module({
   imports: [
@@ -35,7 +35,7 @@ import {
       loader: I18nJsonLoader,
       fallbackLanguage: 'en',
       loaderOptions: {
-        path: join(__dirname, 'i18n/'),
+        path: join(process.cwd(), 'src', 'i18n/'),
         watch: true,
       },
       typesOutputPath: join(process.cwd(), 'src/generated/i18n.generated.ts'),
